@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="valtechspring.orm">
+	<class name="Car">
+		<id name="id">
+			<!-- <generator class="assigned"></generator> --><!-- assigned means user will provide pk -->
+			<!-- <generator class="increment" /> --> <!-- hibernate will select max id +1 -->
+			<!-- <generator class="native" /> --> <!-- db is reposible for Pk.. autoincrement columns mysql supports -->
+			<generator class="sequence" />
+		</id>
+		<property name="make" />
+		<property name="model" />
+		<property name="yearManufactured"/>
+		<property name="price"></property>
+		<property name="color" />
+	</class>
+</hibernate-mapping>

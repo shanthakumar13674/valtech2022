@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.7.3.201602250914-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/ioc.xml</config>
+		<config>src/childioc.xml</config>
+		<config>src/aop.xml</config>
+		<config>src/jdbc.xml</config>
+		<config>src/tx.xml</config>
+		<config>src/tx1.xml</config>
+		<config>src/tx2.xml</config>
+		<config>src/hibtx.xml</config>
+	</configs>
+	<autoconfigs>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

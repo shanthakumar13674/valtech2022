@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<import resource="classpath:jdbc.xml" />
+	
+	<bean id="tm" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" autowire="byType"></bean>
+	
+	<bean id="ti" class="org.springframework.transaction.interceptor.TransactionInterceptor" autowire="byType">
+		<property name="transactionAttributes">
+			<props>
+				<!-- REQUIRED - There is Tx -> become a part of it
+								No Tx -> new Tx will be created
+					 REQUIRES_NEW - There is a Tx -> Suspend the Existing Tx -> Begin  a new Tx execute -> resume the older Tx
+					 				No Tx - > new Tx will be created
+					 SUPPORTS - There is Tx -> Be a part of it.
+					 			No Tx -> execute without a tx.
+					 NOT_SUPPORTED - There is Tx -> Suspend tx -> execute the method -> resume the tx.
+					 				No Tx - execute the method
+					 NEVER	- There is a Tx -> Throw and Exception
+					 			No Tx - Execute
+					 MANDATORY - There is a Tx - Execute
+					 			No Tx - Throw and Exception
+				 -->
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id ="carService" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="interceptorNames">
+			<list>
+				<value>ti</value>
+			</list>
+		</property>
+		<property name="target">
+			<bean class="valtechspring.tx.CarServiceImpl">
+				<property name="carDAO" ref="carDAO"></property>
+			</bean>
+		</property>
+	</bean>
+
+</beans>
