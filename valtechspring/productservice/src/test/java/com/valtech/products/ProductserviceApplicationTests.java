@@ -1,0 +1,34 @@
+package com.valtech.products;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.valtech.products.entity.Product;
+import com.valtech.products.service.ProductService;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.List;
+
+@SpringBootTest
+class ProductserviceApplicationTests {
+
+	@Autowired
+	private ProductService productService;
+
+	@Test
+	void contextLoads() {
+		List<Product> products = productService.getProducts();
+		if (products.size() == 0) {
+			productService.saveProduct(new Product("Bisleri 500", 10, 120,5));
+			productService.saveProduct(new Product("Bisleri 1L", 15, 150,5));
+			productService.saveProduct(new Product("Bisleri 300", 8, 500,12));
+		}
+		for(Product p : products)	{
+			System.out.println(p);
+		}
+		assertEquals(3, productService.getProducts().size());
+	}
+
+}
