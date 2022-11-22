@@ -1,0 +1,22 @@
+package com.valtech.cart.Entity;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Cart {
+
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long id;
+	private List<LineItem> lineItems;
+	private float total;
+	private float taxesTotal;
+	private float grandTotal;
+	private int itemTotal;
+	private boolean checkedOut;
+	
+}

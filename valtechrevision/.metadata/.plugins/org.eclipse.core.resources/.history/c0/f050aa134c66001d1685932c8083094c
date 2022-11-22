@@ -1,0 +1,5 @@
+package com.valtech.products.repository;
+
+public interface ProductRepository {
+
+}

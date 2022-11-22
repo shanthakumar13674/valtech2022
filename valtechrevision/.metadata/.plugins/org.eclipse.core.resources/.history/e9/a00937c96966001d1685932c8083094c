@@ -1,0 +1,35 @@
+package com.valtech.cart.facade;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+import com.valtech.cart.vo.ProductVO;
+
+
+@Component
+// Facade as a design pattern is fundamentally used for hiding the complexity of calling a service.
+public class ProductFacade {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	ProductVO getProduct(long id)	{
+		
+	}
+
+	ProductVO saveProduct(ProductVO prod);
+
+	ProductVO updateProduct(ProductVO prod);
+
+	ProductVO addQuantity(long id, int quantity);
+
+	ProductVO subQuantity(long id, int quantity);
+
+	void deleteProduct(ProductVO prod);
+
+	List<ProductVO> getProducts();
+
+}

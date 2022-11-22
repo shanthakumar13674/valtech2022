@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="serviceregistryrevision"/>
+<aop-project name="springoauth2"/>
+<aop-project name="apigatewayrevision"/>
+<aop-project name="productservice"/>
+<aop-project name="cartservice"/>
+<aop-project name="lomboktest"/>
+</aop-reference-model>

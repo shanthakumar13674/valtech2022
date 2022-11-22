@@ -1,0 +1,6 @@
+package com.valtech.oauth.sample;
+
+
+public class HelloController {
+
+}

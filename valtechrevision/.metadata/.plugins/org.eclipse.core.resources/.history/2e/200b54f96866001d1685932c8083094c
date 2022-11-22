@@ -1,0 +1,5 @@
+package com.valtech.cart.vo;
+
+public class ProductVO {
+
+}

@@ -1,0 +1,21 @@
+package com.valtech.products;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.valtech.products.entity.Product;
+import com.valtech.products.service.ProductService;
+
+@SpringBootTest
+class ProductserviceApplicationTests {
+	
+	@Autowired
+	private ProductService productService;
+
+	@Test
+	void contextLoads() {
+		productService.saveProduct(new Product("Bisleri 500",10,120));
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.valtech.cart.facade;
+
+public class ProductFacadeTests {
+
+}

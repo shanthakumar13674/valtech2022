@@ -1,0 +1,50 @@
+package com.valtech.products.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.valtech.products.entity.Product;
+import com.valtech.products.service.ProductService;
+
+@RestController
+@RequestMapping("/api/products")
+public class ProductController {
+	
+	@Autowired
+	private ProductService productService;
+
+	@GetMapping("/{id}")
+	public Product getProduct(@PathVariable("id") long id) {
+		return productService.getProduct(id);
+	}
+
+	public Product saveProduct(Product prod) {
+		return productService.saveProduct(prod);
+	}
+
+	public Product updateProduct(Product prod) {
+		return productService.updateProduct(prod);
+	}
+
+	public Product addQuantity(long id, int quantity) {
+		return productService.addQuantity(id, quantity);
+	}
+
+	public Product subQuantity(long id, int quantity) {
+		return productService.subQuantity(id, quantity);
+	}
+
+	public void deleteProduct(Product prod) {
+		productService.deleteProduct(prod);
+	}
+
+	public List<Product> getProducts() {
+		return productService.getProducts();
+	}
+
+}

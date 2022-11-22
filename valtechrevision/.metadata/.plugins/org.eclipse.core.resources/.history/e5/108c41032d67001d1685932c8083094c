@@ -1,0 +1,10 @@
+package com.valtech.cart.entity;
+
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+public class Employee {
+	
+	private int id;
+
+}

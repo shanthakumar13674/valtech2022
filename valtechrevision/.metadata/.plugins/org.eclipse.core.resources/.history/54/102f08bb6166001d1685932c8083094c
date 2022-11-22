@@ -1,0 +1,27 @@
+package com.valtech.cart.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.valtech.cart.entity.Cart;
+import com.valtech.cart.repository.CartRepository;
+import com.valtech.cart.repository.LineItemRepository;
+
+@Service
+public class CartServiceImpl {
+	
+	@Autowired
+	private CartRepository cartRepository;
+	@Autowired
+	private LineItemRepository lineItemRepository;
+	
+	public Cart createCart()		{
+		return cartRepository.save(new Cart());
+	}
+	
+	public Cart checkOut(Cart cart)	{
+		cart.setCheckedOut(true);
+		// update all item quantity in the PRoduct service;
+	}
+
+}

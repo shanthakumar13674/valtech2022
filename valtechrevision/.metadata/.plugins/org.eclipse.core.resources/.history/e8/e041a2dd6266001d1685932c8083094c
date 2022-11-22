@@ -1,0 +1,41 @@
+package com.valtech.cart.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.valtech.cart.entity.Cart;
+import com.valtech.cart.entity.LineItem;
+import com.valtech.cart.repository.CartRepository;
+import com.valtech.cart.repository.LineItemRepository;
+
+@Service
+public class CartServiceImpl {
+	
+	@Autowired
+	private CartRepository cartRepository;
+	@Autowired
+	private LineItemRepository lineItemRepository;
+	
+	public Cart createCart()		{
+		return cartRepository.save(new Cart());
+	}
+	
+	public Cart addLineItem(long cartId,long productId,int quantity)	{
+		// Get the Cart
+		Cart cart = cartRepository.findById(cartId).get();
+		// Get the product..
+		// check quantity available
+		// create a line item and save
+		LineItem item = lineItemRepository.save(new LineItem());
+		// add line item to cart
+		// savee the cart
+	}
+	
+	public Cart checkOut(long cartid)	{
+		Cart cart = cartRepository.findById(cartid).get();
+		cart.setCheckedOut(true);
+		// update all item quantity in the Product service;
+		return cartRepository.save(cart);
+	}
+
+}

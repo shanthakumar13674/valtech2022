@@ -1,0 +1,25 @@
+package com.valtech.cart;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import com.valtech.cart.entity.Cart;
+import com.valtech.cart.service.CartService;
+
+@SpringBootTest
+class CartserviceApplicationTests {
+
+	@Autowired
+	private CartService cartService;
+	
+	@Test
+	void completeFlow() {
+		Cart cart = cartService.createCart();
+		assertTrue(cart.getId() > 0);
+		cart = cartService.getCart(cart.getId());
+	}
+
+}

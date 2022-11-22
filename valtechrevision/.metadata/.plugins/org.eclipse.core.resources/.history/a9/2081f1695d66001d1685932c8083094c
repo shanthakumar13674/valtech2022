@@ -1,0 +1,61 @@
+package com.valtech.products.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Product {
+	
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long id;
+	private String name;
+	private float cost;
+	private int quantity;
+	private float taxRate;
+	private float tax;
+	
+	public Product(String name, float cost, int quantity,float taxRate) {
+		this.name = name;
+		this.cost = cost;
+		this.quantity = quantity;
+		this.taxRate = taxRate;
+		this.tax = cost * taxRate /100;
+	}
+	public Product(long id, String name, float cost, int quantity,float taxRate) {
+		this.id = id;
+		this.name = name;
+		this.cost = cost;
+		this.quantity = quantity;
+		this.taxRate = taxRate;
+		this.tax = cost * taxRate /100;
+	}
+	public Product() {}
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public float getCost() {
+		return cost;
+	}
+	public void setCost(float cost) {
+		this.cost = cost;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+}

@@ -1,0 +1,3 @@
+1668677050861	Rename resource 'application.properties'
+1668680070724	Rename package 'com.valtech.cart.Entity'
+1668685937483	Extract interface 'CartService'

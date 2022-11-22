@@ -1,0 +1,5 @@
+package com.valtech.products.controllers;
+
+public class ProductController {
+
+}

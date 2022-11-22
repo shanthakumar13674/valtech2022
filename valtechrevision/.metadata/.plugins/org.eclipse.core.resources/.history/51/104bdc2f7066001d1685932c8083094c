@@ -1,0 +1,44 @@
+package com.valtech.cart;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import com.valtech.cart.entity.Cart;
+import com.valtech.cart.service.CartService;
+
+@SpringBootTest
+class CartserviceApplicationTests {
+
+	@Autowired
+	private CartService cartService;
+	
+	@Test
+	void completeFlow() {
+		Cart cart = cartService.createCart();
+		assertTrue(cart.getId() > 0);
+		cart = cartService.getCart(cart.getId());
+		cart = cartService.addLineItem(cart.getId(), 1, 3); // 10 rs per item and 5% tax , so tax is 50ps.
+		assertEquals(3,cart.getTotalItems());
+		assertEquals(30, cart.getTotal());
+		assertEquals(1.5f, cart.getTaxesTotal());
+		assertEquals(31.5f,cart.getGrandTotal());
+		cart = cartService.addLineItem(cart.getId(), 2, 5); // 15 rs and 5% tax, so tax is .75 rs
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

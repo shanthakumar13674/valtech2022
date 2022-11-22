@@ -1,0 +1,20 @@
+package com.valtech.cart;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.valtech.cart.service.CartService;
+
+@SpringBootTest
+class CartserviceApplicationTests {
+
+	@Autowired
+	private CartService cartService;
+	
+	@Test
+	void completeFlow() {
+		Cart cart = cartService.createCart();
+	}
+
+}

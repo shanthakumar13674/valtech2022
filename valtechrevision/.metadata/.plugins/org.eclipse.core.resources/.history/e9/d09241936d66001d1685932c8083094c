@@ -1,0 +1,22 @@
+package com.valtech.cart.facade;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.valtech.cart.vo.ProductVO;
+
+@SpringBootTest
+public class ProductFacadeTests {
+	
+	@Autowired
+	private ProductFacade productFacade;
+	
+	@Test
+	public void testProducts()	{
+		List<ProductVO> products = productFacade.getProducts();
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.valtech.products.entity;
+
+public class Product {
+
+}
